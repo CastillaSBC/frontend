@@ -1,40 +1,31 @@
-# create-svelte
+<div align="center">
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Castilla Frontend
+<img src="https://espanafascinante.com/wp-content/uploads/Escudo-de-Castilla-pano.jpg">
 
-## Creating a project
+### The fascinating sandbox.
+</div>
 
-If you're seeing this, you've probably already done this step. Congrats!
+## How to run locally.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+To run this project locally you'll need `pnpm` and node `v16`(LTS works fine)
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+1. Clone the project
 
-> Note: the `@next` is temporary
+`git clone https://github.com/CastillaSBC/frontend.git`
 
-## Developing
+2. Enter into the directory cloned and install dependencies.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+`cd frontend && pnpm install`
 
-```bash
-npm run dev
+3. Run the project!
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+`pnpm run dev` or build the project, `pnpm run build`
 
-## Building
 
-To create a production version of your app:
+Made with love using **vite** and **svelte** (Also **Tailwind** css).
 
-```bash
-npm run build
-```
+### Authors
+> [Shigetorum635](github.com/Shigetorum635) - Bug Fixes & Programming
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Thanks to Cookie and Stampe for boosting the discord<3
