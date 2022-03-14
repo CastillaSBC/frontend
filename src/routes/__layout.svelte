@@ -7,8 +7,17 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
+	import { serviceDomain, port } from './../settings/service';
 	let redirect = false;
 	let restrictedPaths = ['auth', 'home', 'trade', 'admin', 'create'];
+	let loading = true;
+	let error = false;
+	let errorMessage = ""
+	async function ping() {
+		loading = true;
+			const response = await fetch(`${serviceDomain}:${port}/service`).catch((err) => {error = true; errorMessage = err});
+		response.ok ? (loading = false) : (error = true);
+	}
 
 	function restrictAuthRoutes() {
 		if (restrictedPaths.some((v) => $page.url.pathname.includes(v))) {
@@ -26,6 +35,7 @@
 
 	onMount(async () => {
 		await getCurrentUser();
+		await ping();
 		if (redirect == true) {
 			goto('/');
 		}
@@ -111,9 +121,19 @@
 		</div>
 	</div>
 </header>
-<section out:fly={{ y: 500, duration: 500 }} in:fly={{ y: 500, duration: 1000 }}><slot /></section>
+{#if error}
+	<div class="text-center mx-auto text-indigo-500 font-bold animate-bounce justify-center text-4xl m-12">We could not connect to the server. Please try again</div>
+	<div class="text-center mx-auto bg-gray-300 rounded w-2/4 text-black font-mono whitespace-pre-line p-2 m-6">{errorMessage}</div>
+	<div class="text-center mx-auto bg-indigo-500 w-max mx-auto text-white font-bold p-2 rounded" on:click={() => location.assign('/')}>Refresh</div>
+	{:else if loading}
+	<div class="text-center mx-auto text-indigo-500  animate-bounce m-12 text-4xl font-bold">Loading</div>
+{:else}
+	<section out:fly={{ y: 500, duration: 500 }} in:fly={{ y: 500, duration: 1000 }}>
+		<slot />
+	</section>
+{/if}
 
-<footer class="md:bottom-0 p-3 w-full bg-gray-300 text-center mx-auto justify-center md:absolute">
+<footer class="bottom-0 p-3 w-full bg-gray-300 text-center mx-auto justify-center absolute">
 	<div class="inline-flex">Powered with</div>
 	<div class="animate-pulse inline-flex">❤️</div>
 	<div class="inline-flex">by Castilla</div>
