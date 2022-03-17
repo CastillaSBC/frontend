@@ -9,7 +9,7 @@
 	import { fly } from 'svelte/transition';
 	import { serviceDomain, port } from './../settings/service';
 	let redirect = false;
-	let restrictedPaths = ['auth', 'home', 'trade', 'admin', 'create'];
+	let restrictedPaths = ['auth', 'home', 'trade', 'admin'];
 	let loading = true;
 	let error = false;
 	let errorMessage = ""

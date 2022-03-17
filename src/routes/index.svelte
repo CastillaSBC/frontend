@@ -59,8 +59,7 @@
 			</div>
 		</div>
 		<a href="/auth/register"><div
-			class="text-center mx-auto my-2 p-2 text-xl rounded bg-violet-500 w-max transition-all duration-500 hover:bg-violet-400 cursor-pointer text-white"
-		>
+			class="text-center mx-auto my-2 p-2 text-xl rounded bg-violet-500 w-max transition-all duration-500 hover:bg-violet-400 cursor-pointer text-white">
 			Join Now
 		</div></a>
 		<div class="">
