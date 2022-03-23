@@ -1,6 +1,4 @@
 <script>
-	import { fly } from "svelte/transition";
-
 	import { register } from '$lib/authentication';
 	import { goto } from '$app/navigation';
 
@@ -31,7 +29,7 @@
 		<div class="text-lg">Password</div>
 		<input type="password" bind:value={password} class="px-1 py-0.5 rounded border outline-none" />
 		<div
-			on:click={signup({ username, password })}
+			on:click={() => signup({ username, password })}
 			class="bg-violet-600 w-max mx-auto p-2 my-2 rounded text-white hover:bg-purple-500 cursor-pointer select-none"
 		>
 			Register Account

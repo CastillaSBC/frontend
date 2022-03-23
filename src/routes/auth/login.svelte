@@ -1,8 +1,6 @@
 <script>
 	import { authenticate, getCurrentUser } from '../../lib/authentication';
 	import { goto } from '$app/navigation';
-	import { user } from '../../stores/userStore';
-
 	let username = '';
 	let password = '';
 	let errorMessage = '';

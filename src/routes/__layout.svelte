@@ -7,12 +7,13 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
-	import { serviceDomain, port } from './../settings/service';
+	import { serviceDomain, port, serviceName, serviceDescription} from './../settings/service';
 	let redirect = false;
 	let restrictedPaths = ['auth', 'home', 'trade', 'admin'];
 	let loading = true;
 	let error = false;
 	let errorMessage = ""
+	import { colorSettings } from "./../settings/frontend"
 	async function ping() {
 		loading = true;
 			const response = await fetch(`${serviceDomain}:${port}/service`).catch((err) => {error = true; errorMessage = err});
@@ -43,8 +44,8 @@
 </script>
 
 <header class="sticky top-0 z-50">
-	<div class="p-4 bg-violet-700 md:grid grid-cols-3 sticky">
-		<div class="text-white font-bold text-3xl text-center p-1">Castilla</div>
+	<div class="p-4 bg-[{colorSettings.background}] md:grid grid-cols-3 sticky">
+		<div class="text-white font-bold text-3xl text-center p-1">{serviceName}</div>
 		<div class="mx-auto text-center gap-2 grid grid-flow-col text-white font-bold items-center">
 			{#if !$user.username}
 				<a href="/">
@@ -124,17 +125,14 @@
 {#if error}
 	<div class="text-center mx-auto text-indigo-500 font-bold animate-bounce justify-center text-4xl m-12">We could not connect to the server. Please try again</div>
 	<div class="text-center mx-auto bg-gray-300 rounded w-2/4 text-black font-mono whitespace-pre-line p-2 m-6">{errorMessage}</div>
-	<div class="text-center mx-auto bg-indigo-500 w-max mx-auto text-white font-bold p-2 rounded" on:click={() => location.assign('/')}>Refresh</div>
+	<div class="text-center mx-auto bg-indigo-500 w-max cursor-pointer mx-auto text-white font-bold p-2 rounded" on:click={() => location.assign('/')}>Refresh</div>
 	{:else if loading}
 	<div class="text-center mx-auto text-indigo-500  animate-bounce m-12 text-4xl font-bold">Loading</div>
 {:else}
-	<section out:fly={{ y: 500, duration: 500 }} in:fly={{ y: 500, duration: 1000 }}>
+	<section class="h-screen" out:fly={{ y: 500, duration: 500 }} in:fly={{ y: 500, duration: 1000 }}>
 		<slot />
+
 	</section>
 {/if}
 
-<footer class="bottom-0 p-3 w-full bg-gray-300 text-center mx-auto justify-center absolute">
-	<div class="inline-flex">Powered with</div>
-	<div class="animate-pulse inline-flex">❤️</div>
-	<div class="inline-flex">by Castilla</div>
-</footer>
+

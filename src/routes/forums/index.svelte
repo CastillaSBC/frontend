@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { port, serviceDomain } from '../../settings/service';
+	import CategorySelect from './../../components/CategorySelect.svelte';
+	import CategorySelector from './../../components/CategorySelect.svelte';
 	const baseURL = `${serviceDomain}:${port}`;
 
 	let thread = undefined;
@@ -20,7 +22,7 @@
 			data.json().then((data) => {
 				threads = data.threads;
 				loading.threads = false;
-				console.log(threads)
+				console.log(threads);
 			});
 		});
 	}
@@ -32,11 +34,11 @@
 		threads = data.threads;
 	}
 
-	function getThread(id){
+	function getThread(id) {
 		fetch(`${baseURL}/forums/thread/${id}`).then((data) => {
 			data.json().then((data) => {
-				thread = data.thread
-				console.log(thread)
+				thread = data.thread;
+				console.log(thread);
 			});
 		});
 	}
@@ -62,7 +64,10 @@
 				<div class="mx-auto text-center animate-pulse items-center">Loading...</div>
 			{:else}
 				{#each threads as thread}
-					<div on:click={() => getThread(thread.id)} class="border h-fit p-2 bg-violet-500 hover:border-dotted hover:underline">
+					<div
+						on:click={() => getThread(thread.id)}
+						class="border h-fit p-2 bg-violet-500 hover:border-dotted hover:underline"
+					>
 						{thread.title}
 					</div>
 				{/each}
@@ -75,12 +80,10 @@
 					<div class="mx-auto text-center animate-pulse items-center">Loading...</div>
 				{:else}
 					{#each categories as category}
-						<div
-							class="hover:underline cursor-pointer"
+						<CategorySelect
 							on:click={() => changeCategory(category.id)}
-						>
-							{category.categoryName}
-						</div>
+							categoryName={category.categoryName}
+						/>
 					{/each}
 				{/if}
 			</div>
