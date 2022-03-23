@@ -1,0 +1,109 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js",
+      "_userStore-ea18dfce.js",
+      "_frontend-c9dcfcec.js"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "entries/pages/__error.svelte.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js",
+      "_userStore-ea18dfce.js",
+      "_frontend-c9dcfcec.js"
+    ]
+  },
+  "src/routes/forums/index.svelte": {
+    "file": "entries/pages/forums/index.svelte.js",
+    "src": "src/routes/forums/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js"
+    ]
+  },
+  "src/routes/forums/create/[id].svelte": {
+    "file": "entries/pages/forums/create/_id_.svelte.js",
+    "src": "src/routes/forums/create/[id].svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js"
+    ]
+  },
+  "src/routes/auth/register.svelte": {
+    "file": "entries/pages/auth/register.svelte.js",
+    "src": "src/routes/auth/register.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js",
+      "_userStore-ea18dfce.js"
+    ]
+  },
+  "src/routes/auth/login.svelte": {
+    "file": "entries/pages/auth/login.svelte.js",
+    "src": "src/routes/auth/login.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js",
+      "_userStore-ea18dfce.js"
+    ]
+  },
+  "src/routes/home/index.svelte": {
+    "file": "entries/pages/home/index.svelte.js",
+    "src": "src/routes/home/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js",
+      "_userStore-ea18dfce.js"
+    ]
+  },
+  "src/routes/shop/index.svelte": {
+    "file": "entries/pages/shop/index.svelte.js",
+    "src": "src/routes/shop/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-e286f8ca.js"
+    ]
+  },
+  "_index-e286f8ca.js": {
+    "file": "chunks/index-e286f8ca.js"
+  },
+  "_userStore-ea18dfce.js": {
+    "file": "chunks/userStore-ea18dfce.js",
+    "imports": [
+      "_index-e286f8ca.js"
+    ]
+  },
+  "_frontend-c9dcfcec.js": {
+    "file": "chunks/frontend-c9dcfcec.js"
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks-1c45ba0b.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
+  }
+}
